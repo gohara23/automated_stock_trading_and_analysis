@@ -1,4 +1,6 @@
 config.json
+testing.py 
+reddit.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
