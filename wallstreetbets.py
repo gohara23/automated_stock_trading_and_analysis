@@ -86,6 +86,11 @@ def get_fund_weights(week_weight=0.25, month_weight=0.25, year_weight=0.5, num_p
 
     tickers_df.sort_values(by=['fund_weights'], ascending=False, inplace=True)
 
+    # Drop Tickers with no mentions
+    for ticker in tickers_df.index:
+        if tickers_df.at[ticker, 'fund_weights'] == 0:
+            tickers_df.drop([ticker], inplace=True)
+
     return tickers_df
 
 
