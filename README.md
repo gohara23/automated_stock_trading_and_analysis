@@ -13,3 +13,20 @@ where V(t) is the option value, S(t) is the price of the underlying asset, t is 
 ![black_scholes3d](https://user-images.githubusercontent.com/59593124/109970138-b5c4b800-7cc2-11eb-8dc4-c4097ff1b758.png)\
 ![payoff_at_expiri](https://user-images.githubusercontent.com/59593124/109970199-c412d400-7cc2-11eb-919c-f4a022bc55fd.png)\
 
+## charting_functions.py
+Creates charts to give a high level overview of a Robinhood portfolio. Uses the robin-stocks package by jmfernandes.
+Must create a config.json file in the format as follows:
+
+```json
+  {
+    "username": "email@email.com",
+    "password": "password123"
+  }
+  ```
+  
+![pct_return_bar](https://user-images.githubusercontent.com/59593124/109975204-684b4980-7cc8-11eb-8e23-11726fe63bf4.png)\
+  
+![portfolio_pie](https://user-images.githubusercontent.com/59593124/109975345-8ca72600-7cc8-11eb-93f7-ab08681f8ce2.png)\
+
+![stocks_pie](https://user-images.githubusercontent.com/59593124/109975446-a0eb2300-7cc8-11eb-9ec1-d7b7cba691bf.png)\
+
