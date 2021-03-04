@@ -30,3 +30,7 @@ Must create a config.json file in the format as follows:
 
 ![stocks_pie](https://user-images.githubusercontent.com/59593124/109975446-a0eb2300-7cc8-11eb-9ec1-d7b7cba691bf.png)\
 
+## wallstreetbets.py
+Counts mentions of tickers on r/wallstreetbets and creates a fund weighted by the number of mentions. Allows the ability to change the weight of mentions based on time periods of week, month, and year. 
+
+
