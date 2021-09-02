@@ -13,6 +13,16 @@ where V(t) is the option value, S(t) is the price of the underlying asset, t is 
 ![black_scholes3d](https://user-images.githubusercontent.com/59593124/109970138-b5c4b800-7cc2-11eb-8dc4-c4097ff1b758.png)\
 ![payoff_at_expiri](https://user-images.githubusercontent.com/59593124/109970199-c412d400-7cc2-11eb-919c-f4a022bc55fd.png)\
 
+
+## geometric_brownian_motion.py
+An assumption of the Black-Scholes PDE is that the price movement of the underlying security follows "geometric brownian motion" or a "random walk". This program simulates the stochastic differential equation driving brownian motion.
+
+![gmb_001](https://user-images.githubusercontent.com/59593124/130331228-57568415-f69f-4296-9e00-3b4176997b38.png)\
+
+![gmb_simulation](https://user-images.githubusercontent.com/59593124/130331273-ee39e3e8-031f-4ce2-a4db-c099ed6e3d7e.png)
+
+
+
 ## charting_functions.py
 Creates charts to give a high level overview of a Robinhood portfolio. Uses the robin-stocks package by jmfernandes.
 Must create a config.json file in the format as follows:
