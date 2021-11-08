@@ -1,5 +1,4 @@
 from numpy.core.numeric import NaN
-from robin_stocks import robinhood as rh
 import pandas_datareader as web
 import userFunctions as uf
 from pprint import pprint
@@ -8,6 +7,7 @@ import datetime as dt
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import robin_stocks as rh
 
 # To add:
 # charting functions
@@ -23,12 +23,12 @@ class Portfolio():
         date = dt.date.today()
         date = date.strftime("%Y_%m_%d")
 
+        uf.login()
         # minimize API calls pulling data once per day
         if os.path.exists(f'portfolio_{date}.csv') and os.path.exists(f'bank_transfers_{date}.csv'):
             self.data = pd.read_csv(f'portfolio_{date}.csv')
             self.bank_transfers = pd.read_csv(f'bank_transfers_{date}.csv')
         else:
-            uf.login()
             self.data = pd.DataFrame(rh.get_historical_portfolio(
                 interval='week', span='all')['equity_historicals'])
             self.data.to_csv(f'portfolio_{date}.csv')
@@ -57,7 +57,6 @@ class Portfolio():
         self.data['close_equity'] = self.data['close_equity'].astype(float)
         self.data['open_equity'] = self.data['open_equity'].astype(float)
 
-        uf.login()
         self.current_acc_value = float(rh.robinhood.load_portfolio_profile()[
             'equity'])
 
@@ -222,15 +221,9 @@ class Portfolio():
             final_adj_close = float(
                 data.at[data.index[-1], 'adjusted_close_equity'])
 
-        print(final_adj_close)
         begining_adj_close = float(
             data.at[data.index[0], 'adjusted_close_equity'])
-        print(begining_adj_close)
         net_change = final_adj_close - begining_adj_close
-        print(net_change)
-        print(ave_cash)
-        # print(data)
-        # print(self.data)
         money_weighted_pct_return = (net_change / ave_cash) * 100
         return money_weighted_pct_return
 
